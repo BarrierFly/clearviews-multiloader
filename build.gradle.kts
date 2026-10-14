@@ -130,7 +130,7 @@ repositories {
     maven("https://thedarkcolour.github.io/KotlinForForge") // Kotlin for Forge - required by YACL
     maven("https://maven.terraformersmc.com") // Mod Menu
     maven("https://maven.nucleoid.xyz/") // Placeholder API - required by Mod Menu
-    maven("https://maven.neoforged.net/releases") // NeoForge
+    //maven("https://maven.neoforged.net/releases") // NeoForge
     maven("https://pkgs.dev.azure.com/djtheredstoner/DevAuth/_packaging/public/maven/v1") // DevAuth
     maven("https://maven.bawnorton.com/releases") // MixinSquared
     maven("https://api.modrinth.com/maven") // Modrinth

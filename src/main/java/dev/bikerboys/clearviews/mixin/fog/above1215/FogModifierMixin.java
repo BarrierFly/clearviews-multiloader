@@ -14,8 +14,6 @@ import net.minecraft.client.renderer.fog.environment.*;
 //?}
 
 import net.minecraft.client.renderer.*;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.entity.Entity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -29,9 +27,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
         BlindnessFogEnvironment.class,
         DarknessFogEnvironment.class,
         AtmosphericFogEnvironment.class,
-        //? if <= 1.21.10 {
-        DimensionOrBossFogEnvironment.class,
-        //?}
         PowderedSnowFogEnvironment.class})
 //?}
 
@@ -42,18 +37,8 @@ public class FogModifierMixin {
 
 //? if >=1.21.6 {
 
-    //? if <= 1.21.10 {
-        @Inject(method = "setupFog", at = @At("TAIL"))
-        private void modifyFog(FogData fogData, Entity entity, BlockPos pos, ClientLevel level, float renderDistance, DeltaTracker deltaTracker, CallbackInfo ci) {
-
-            //?} else {
-
-
-            /*@Inject(method = "setupFog", at = @At("TAIL"))
-            private void modifyFog(FogData fogData, Camera camera, ClientLevel clientLevel, float f, DeltaTracker deltaTracker, CallbackInfo ci) {
-
-
-                *///?}
+    @Inject(method = "setupFog", at = @At("TAIL"))
+    private void modifyFog(FogData fogData, Camera camera, ClientLevel clientLevel, float f, DeltaTracker deltaTracker, CallbackInfo ci) {
         FogEnvironment fogEnvironment = (FogEnvironment)(Object)this;
 
 
@@ -106,19 +91,6 @@ public class FogModifierMixin {
                 fogData.cloudEnd = fogData.environmentalEnd;
             }
         }
-
-        //? if <= 1.21.10 {
-
-        if (fogEnvironment instanceof DimensionOrBossFogEnvironment) {
-            if (getInstance().useDimensionOrBossFog) {
-                fogData.environmentalStart = getInstance().dimensionOrBossFogStart;
-                fogData.environmentalEnd = getInstance().dimensionOrBossFogEnd;
-
-                fogData.skyEnd = fogData.environmentalEnd;
-                fogData.cloudEnd = fogData.environmentalEnd;
-            }
-        }
-        //?}
 
         if (fogEnvironment instanceof PowderedSnowFogEnvironment) {
             if (getInstance().usePowderSnowFog) {

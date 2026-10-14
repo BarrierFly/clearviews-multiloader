@@ -3,6 +3,7 @@ package dev.bikerboys.clearviews.config;
 import dev.isxander.yacl3.api.*;
 import dev.isxander.yacl3.api.controller.FloatFieldControllerBuilder;
 import dev.isxander.yacl3.api.controller.FloatSliderControllerBuilder;
+import dev.isxander.yacl3.api.controller.IntegerFieldControllerBuilder;
 import dev.isxander.yacl3.api.controller.TickBoxControllerBuilder;
 import dev.isxander.yacl3.api.controller.ValueFormattableController;
 import dev.isxander.yacl3.config.v2.api.ConfigClassHandler;
@@ -27,6 +28,8 @@ public class ClearviewsConfig {
     @SerialEntry public boolean disableDarkness = true;
 
     @SerialEntry public boolean disablePortalOverlay = true;
+    @SerialEntry public boolean portalProgressBar = true;
+    @SerialEntry public int portalProgressTicks = 80;
     @SerialEntry public boolean removeSpyglassBorder = true;
     @SerialEntry public boolean removePumpkinOverlay = true;
 
@@ -192,6 +195,20 @@ public class ClearviewsConfig {
                                 .description(OptionDescription.of(Component.literal("Disables the portal overlay")))
                                 .binding(defaults.disablePortalOverlay, () -> config.disablePortalOverlay, newVal -> config.disablePortalOverlay = newVal)
                                 .controller(TickBoxControllerBuilder::create)
+                                .build())
+
+                        .option(Option.<Boolean>createBuilder()
+                                .name(Component.literal("Nether Portal Progress Bar"))
+                                .description(OptionDescription.of(Component.literal("Shows a progress bar with a percentage readout while you are travelling through a nether portal.")))
+                                .binding(defaults.portalProgressBar, () -> config.portalProgressBar, newVal -> config.portalProgressBar = newVal)
+                                .controller(TickBoxControllerBuilder::create)
+                                .build())
+
+                        .option(Option.<Integer>createBuilder()
+                                .name(Component.literal("Nether Portal Progress Duration"))
+                                .description(OptionDescription.of(Component.literal("How many ticks the nether portal progress bar counts up over. Should match the playersNetherPortalDefaultDelay game rule (80 ticks by default in singleplayer).")))
+                                .binding(defaults.portalProgressTicks, () -> config.portalProgressTicks, newVal -> config.portalProgressTicks = newVal)
+                                .controller(IntegerFieldControllerBuilder::create)
                                 .build())
 
                         .option(Option.<Boolean>createBuilder()

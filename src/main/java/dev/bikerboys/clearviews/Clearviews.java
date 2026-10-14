@@ -35,6 +35,11 @@ public class Clearviews /*? if fabric {*/ implements ModInitializer /*?}*/ {
         ClearviewsConfig.CONFIG.load();
         ClientTickEvents.START_CLIENT_TICK.register(Clearviews::tick);
 
+        //? if >=1.21.11 {
+        ClientTickEvents.END_CLIENT_TICK.register(PortalProgressBar::tick);
+        PortalProgressBar.register();
+        //?}
+
     }
     //?}
 

@@ -3,7 +3,7 @@ pluginManagement {
 		mavenCentral()
 		gradlePluginPortal()
 		maven("https://maven.fabricmc.net")
-		maven("https://maven.neoforged.net/releases")
+		//maven("https://maven.neoforged.net/releases")
 		maven("https://maven.architectury.dev")
 		maven("https://maven.kikugie.dev/snapshots")
 		maven("https://maven.kikugie.dev/releases")
@@ -28,19 +28,22 @@ stonecutter {
 			}
 		}
 
-		mc("1.21.1", listOf("fabric", "neoforge"))
-		mc("1.21.3", listOf("fabric", "neoforge"))
-		mc("1.21.4", listOf("fabric", "neoforge"))
-		mc("1.21.5", listOf("fabric", "neoforge"))
-		mc("1.21.6", listOf("fabric", "neoforge"))
-		mc("1.21.7", listOf("fabric", "neoforge"))
-		mc("1.21.8", listOf("fabric", "neoforge"))
-		mc("1.21.9", listOf("fabric", "neoforge"))
-		mc("1.21.10", listOf("fabric", "neoforge"))
-		mc("1.21.11", listOf("fabric", "neoforge"))
-		mc("26.1.2", listOf("fabric"))
+		// Temporarily disabled: only 1.21.11 Fabric is being built right now.
+		// Re-enable by uncommenting the mc(...) lines below.
+		// mc("1.21.1", listOf("fabric", "neoforge"))
+		// mc("1.21.3", listOf("fabric", "neoforge"))
+		// mc("1.21.4", listOf("fabric", "neoforge"))
+		// mc("1.21.5", listOf("fabric", "neoforge"))
+		// mc("1.21.6", listOf("fabric", "neoforge"))
+		// mc("1.21.7", listOf("fabric", "neoforge"))
+		// mc("1.21.8", listOf("fabric", "neoforge"))
+		// mc("1.21.9", listOf("fabric", "neoforge"))
+		// mc("1.21.10", listOf("fabric", "neoforge"))
+		mc("1.21.11", listOf("fabric"))
+		// mc("1.21.11", listOf("neoforge"))
+		// mc("26.1.2", listOf("fabric"))
 
-		vcsVersion = "1.21.10-fabric"
+		vcsVersion = "1.21.11-fabric"
 	}
 }
 

@@ -4,7 +4,7 @@ plugins {
     alias(libs.plugins.publishing)
 }
 
-stonecutter active "26.1.2-fabric" /* [SC] DO NOT EDIT */
+stonecutter active "1.21.11-fabric" /* [SC] DO NOT EDIT */
 
 stonecutter parameters {
     swaps["mod_version"] = "\"${property("mod.version")}\";"

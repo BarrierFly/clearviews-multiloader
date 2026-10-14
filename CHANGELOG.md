@@ -1,1 +1,3 @@
-- Fixed a bug where the game didnt even start up at all.
+- Temporarily disabled every Minecraft version / loader except 1.21.11 Fabric.
+- Added a nether portal progress bar, drawn at the bottom centre of the screen with a percentage readout.
+- Added a "Nether Portal Progress Bar" option (enabled by default) and a "Nether Portal Progress Duration" option (80 ticks by default).
